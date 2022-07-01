@@ -1,10 +1,7 @@
-from ast import While
 import cv2
-import numpy as np
 import os
 import pandas as pd
 
-FOLDER = 'C:\\Users\\Alexis\\Desktop\\Data Science\\Webscraping\\imgs'
 
 # Function that goes through all images and lets the user label them.
 # Controls: a = label as 0
@@ -52,6 +49,3 @@ def image_classifier(folder_location):
                 df.to_csv(folder_location + '\\' + 'Labels')
                 cv2.destroyAllWindows()
                 break
-
-
-image_classifier(FOLDER)

@@ -1,15 +1,8 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 import requests
 import io
 from PIL import Image
 import time
-
-PATH = 'C:\\Users\\Alexis\\Desktop\Data Science\Webscraping\\chromedriver.exe'
-search_path = "https://www.google.com/search?q=cats&tbm=isch&ved=2ahUKEwjykJ779tbzAhXhgnIEHSVQBksQ2-cCegQIABAA&oq=cats&gs_lcp=CgNpbWcQAzIHCAAQsQMQQzIHCAAQsQMQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzoHCCMQ7wMQJ1C_31NYvOJTYPbjU2gCcAB4AIABa4gBzQSSAQMzLjOYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=7vZuYfLhOeGFytMPpaCZ2AQ&bih=817&biw=1707&rlz=1C1CHBF_enCA918CA918"
-ammount_imgs =  5
-
-wd = webdriver.Chrome(PATH)
 
 # A function that takes a Google Image search link and gets the Image URLS for a set ammount of pictures
 # Returns a list of URLS
@@ -65,12 +58,3 @@ def download_image(download_path, url, file_name):
 		print("Success")
 	except Exception as e:
 		print('FAILED -', e)
-
-
-if __name__ == '__main__':
-	urls = get_images_from_google(wd, 1, ammount_imgs, search_path)
-
-	for i, url in enumerate(urls):
-		download_image("imgs/", url, str(i) + ".jpg")
-
-wd.quit()
